@@ -13,6 +13,16 @@ A simple website that helps travelers find which **JR and metro stations in Japa
 - 🏨 **"Find accessible hotels nearby"** and **"Open in Google Maps"** shortcuts for each station.
 - 📱 **Mobile-friendly** layout for use while traveling.
 
+## Preview
+
+Screenshots (viewable on GitHub): [`docs/preview/`](docs/preview/)
+
+| Desktop | Mobile |
+| --- | --- |
+| ![Desktop](docs/preview/desktop-detail.png) | ![Mobile](docs/preview/mobile.png) |
+
+A live, clickable preview is published via GitHub Pages (see "Live preview" below).
+
 ## Run it locally
 
 It's a static site — no build step. Because it loads `data/stations.json` with `fetch`, open it through a local web server (not via `file://`):
@@ -27,6 +37,18 @@ python3 -m http.server 8000
 # or Node
 npx serve .
 ```
+
+## Live preview (GitHub Pages)
+
+A workflow at `.github/workflows/pages.yml` deploys the site to GitHub Pages on
+every push to `main` or a `cursor/**` branch. To turn it on once:
+
+1. On GitHub, go to **Settings → Pages**.
+2. Set **Source** to **GitHub Actions**.
+3. Re-run the "Deploy preview to GitHub Pages" workflow (Actions tab) if needed.
+
+The live URL will then appear in the Actions run summary and on the Pages
+settings screen.
 
 ## Project structure
 
