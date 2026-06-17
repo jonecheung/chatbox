@@ -1,4 +1,4 @@
-# Japan Station Lift Finder — Project Plan
+# Where's the Lift? — Project Plan
 
 > A living document capturing the goal, scope, and decisions for the project.
 > Last updated: 2026-06-17
@@ -26,7 +26,7 @@ hotel near a station they can actually get in and out of.
 - **Core question per station:** Is there an **exit that has a lift**, and does
   that lift route connect to the **designated platform** (street → concourse →
   platform, fully step-free)?
-- Show the **step-free status**: ✅ yes / ⚠️ partial / ⛔ no.
+- Show the **step-free status**: yes / partial / no.
 - Show **which exit(s) have a lift** and **which platforms / lines** they reach
   step-free.
 - Show a **"last verified" date** + a link to the **official source**.
@@ -36,11 +36,11 @@ hotel near a station they can actually get in and out of.
 - **Map** view (Leaflet + OpenStreetMap, no API key) + searchable list.
 
 ### Explicitly OUT of scope (decided)
-- ❌ **Which car / boarding position** ("board car X to be nearest the lift").
+- **Which car / boarding position** ("board car X to be nearest the lift").
   Not needed.
-- ❌ **Bus stations** — the user can get to the platform themselves.
-- ❌ **Transfer routing** (multi-line journeys) — not in v1.
-- ❌ Building our own walking directions — Google Maps handles that.
+- **Bus stations** — the user can get to the platform themselves.
+- **Transfer routing** (multi-line journeys) — not in v1.
+- Building our own walking directions — Google Maps handles that.
 
 ## 4. Geographic Coverage (v1)
 
@@ -86,7 +86,7 @@ hotel near a station they can actually get in and out of.
 
 ## 6. Display per Station
 
-- ✅ / ⚠️ / ⛔ overall step-free status.
+- Overall step-free status (yes / partial / no).
 - **Which exit has a lift → which line/platform it reaches.**
 - Map marker + station location.
 - Buttons: **Navigate to station (Google Maps)**, **Find accessible hotels

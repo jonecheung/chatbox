@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Japan Station Lift Finder — Find step-free stations & elevators</title>
-  <meta name="description" content="Find which JR and metro stations in Japan have elevators (lifts) and step-free access, so you can pick an accessible hotel nearby." />
+  <title>Where's the Lift? — Step-free stations & elevators in Japan</title>
+  <meta name="description" content="Find which JR and metro stations in Japan have a lift (elevator) and step-free access from the exit to the platform, so you can pick an accessible hotel nearby." />
 
   <link rel="preconnect" href="https://unpkg.com" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -14,10 +14,17 @@
 <body>
   <header class="app-header">
     <div class="brand">
-      <span class="brand-mark" aria-hidden="true">🛗</span>
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="3" width="16" height="18" rx="2" />
+          <path d="M12 3v18" />
+          <path d="M8.5 9 7 7.5 5.5 9" />
+          <path d="M15.5 15 17 16.5 18.5 15" />
+        </svg>
+      </span>
       <div>
-        <h1>Japan Station Lift Finder</h1>
-        <p class="tagline">Find stations with elevators &amp; step-free access — then pick a hotel nearby.</p>
+        <h1>Where's the Lift?</h1>
+        <p class="tagline">Find stations in Japan with a lift from the exit to the platform — then pick a hotel nearby.</p>
       </div>
     </div>
   </header>

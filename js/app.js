@@ -6,9 +6,9 @@
   "use strict";
 
   var STATUS = {
-    yes: { label: "Step-free", icon: "✅" },
-    partial: { label: "Partly step-free", icon: "⚠️" },
-    no: { label: "No step-free route", icon: "⛔" }
+    yes: { label: "Step-free" },
+    partial: { label: "Partly step-free" },
+    no: { label: "No step-free route" }
   };
 
   var state = {
@@ -79,7 +79,7 @@
         state.stations = data.stations || [];
         if (data.meta) {
           if (data.meta.disclaimer) {
-            els.disclaimer.textContent = "ⓘ " + data.meta.disclaimer;
+            els.disclaimer.textContent = data.meta.disclaimer;
           }
           state.reportUrl = data.meta.reportUrl || "";
         }
@@ -141,7 +141,7 @@
         '<li class="station-card' + (s.id === state.activeId ? " active" : "") + '" data-id="' + s.id + '" tabindex="0" role="button">' +
         '<div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start">' +
         "<h3>" + escapeHtml(s.name) + '<span class="ja">' + escapeHtml(s.nameJa || "") + "</span></h3>" +
-        '<span class="badge ' + s.stepFree + '">' + st.icon + " " + st.label + "</span>" +
+        '<span class="badge ' + s.stepFree + '">' + st.label + "</span>" +
         "</div>" +
         '<p class="meta">' + escapeHtml(s.city) + " · " + escapeHtml((s.operators || []).join(", ")) + "</p>" +
         '<div class="lines">' + lines + more + "</div>" +
@@ -168,9 +168,9 @@
     state.filtered.forEach(function (s) {
       var icon = L.divIcon({
         className: "",
-        html: '<div class="marker-pin">' + (STATUS[s.stepFree] || STATUS.no).icon + "</div>",
-        iconSize: [24, 24],
-        iconAnchor: [12, 12]
+        html: '<span class="marker-dot marker-' + s.stepFree + '"></span>',
+        iconSize: [20, 20],
+        iconAnchor: [10, 10]
       });
       var m = L.marker([s.lat, s.lng], { icon: icon, title: s.name });
       m.on("click", function () { selectStation(s.id, false); });
@@ -202,8 +202,8 @@
 
     var entrances = (s.entrances || []).map(function (e) {
       var liftBadge = e.hasLift
-        ? '<span class="badge yes">🛗 Has lift</span>'
-        : '<span class="badge no">🚫 No lift</span>';
+        ? '<span class="badge yes">Has lift</span>'
+        : '<span class="badge no">No lift</span>';
       var platforms = (e.toPlatforms || []).map(function (p) {
         return '<span class="line-pill">' + escapeHtml(p) + "</span>";
       }).join("");
@@ -226,24 +226,24 @@
     var navQuery = encodeURIComponent(s.name + " station " + s.city + " Japan");
 
     var verified = s.lastVerified
-      ? '<p class="verified">✔ Last verified: ' + escapeHtml(s.lastVerified) + " · always confirm before you travel</p>"
+      ? '<p class="verified">Last verified: ' + escapeHtml(s.lastVerified) + " · always confirm before you travel</p>"
       : "";
 
     var reportLink = state.reportUrl
-      ? '<a class="report" target="_blank" rel="noopener" href="' + escapeHtml(state.reportUrl) + '">⚑ Report a problem with this info</a>'
+      ? '<a class="report" target="_blank" rel="noopener" href="' + escapeHtml(state.reportUrl) + '">Report a problem with this info</a>'
       : "";
 
     els.detailBody.innerHTML =
       "<h2>" + escapeHtml(s.name) + '<span class="ja"> ' + escapeHtml(s.nameJa || "") + "</span></h2>" +
       '<p class="sub">' + escapeHtml(s.city) + " · " + escapeHtml((s.operators || []).join(", ")) + "</p>" +
-      '<span class="badge ' + s.stepFree + '">' + st.icon + " " + st.label + "</span>" +
+      '<span class="badge ' + s.stepFree + '">' + st.label + "</span>" +
       verified +
       "<h4>Lines</h4><div class=\"lines\">" + lines + "</div>" +
       "<h4>Step-free exits (with lift → platform)</h4>" + entrances +
       '<div class="actions">' +
-      '<a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=' + navQuery + '">🧭 Navigate to station (Google Maps)</a>' +
-      '<a class="btn btn-secondary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=' + hotelQuery + '">🏨 Find accessible hotels nearby</a>' +
-      (s.officialUrl ? '<a class="btn btn-secondary" target="_blank" rel="noopener" href="' + escapeHtml(s.officialUrl) + '">ⓘ Official station info</a>' : "") +
+      '<a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=' + navQuery + '">Navigate to station (Google Maps)</a>' +
+      '<a class="btn btn-secondary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=' + hotelQuery + '">Find accessible hotels nearby</a>' +
+      (s.officialUrl ? '<a class="btn btn-secondary" target="_blank" rel="noopener" href="' + escapeHtml(s.officialUrl) + '">Official station info</a>' : "") +
       "</div>" +
       reportLink;
 

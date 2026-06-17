@@ -1,17 +1,17 @@
-# Japan Station Lift Finder 🛗
+# Where's the Lift?
 
-A simple website that helps travelers find which **JR and metro stations in Japan have elevators (lifts) and step-free access** — so you can confidently pick a hotel near a station you can actually get in and out of with luggage, a stroller, or a wheelchair.
+A simple website that helps travelers find which **JR and metro stations in Japan have a lift (elevator) and step-free access** from the exit to the platform — so you can confidently pick a hotel near a station you can actually get in and out of with luggage, a stroller, or a wheelchair.
 
 > **Why this exists:** When booking a hotel in Japan it's hard to know whether the nearest station is step-free. Stairs-only stations are a real problem with suitcases or reduced mobility. This tool puts that information on a map and in search results.
 
 ## Features
 
-- 🔎 **Search** stations by English or Japanese name, city, line, or operator.
-- 🗺️ **Interactive map** (OpenStreetMap / Leaflet) with a marker per station, colored by accessibility status.
-- ✅⚠️⛔ **Step-free status** at a glance: fully step-free, partly step-free, or no step-free route.
-- 🛗 **Elevator details** per station: which levels each lift connects, plus accessible exits.
-- 🏨 **"Find accessible hotels nearby"** and **"Open in Google Maps"** shortcuts for each station.
-- 📱 **Mobile-friendly** layout for use while traveling.
+- **Search** stations by English or Japanese name, city, line, or operator.
+- **Interactive map** (OpenStreetMap / Leaflet) with a marker per station, colored by accessibility status.
+- **Step-free status** at a glance: fully step-free, partly step-free, or no step-free route.
+- **Lift / exit details** per station: which exit has a lift and which platforms it reaches step-free.
+- **"Navigate to station"** and **"Find accessible hotels nearby"** shortcuts (Google Maps) for each station.
+- **Mobile-friendly** layout for use while traveling.
 
 ## Preview
 
@@ -88,7 +88,7 @@ data/stations.json  # Curated station accessibility dataset
 2. Use a unique `id`, accurate `lat`/`lng`, and set `stepFree` honestly.
 3. Open a pull request.
 
-### ⚠️ Disclaimer
+### Disclaimer
 
 Elevator availability can change due to maintenance or construction. **Always verify with the official operator before you travel**, especially if you rely on step-free access. Use the "Official station info" link on each station for the authoritative source.
 
