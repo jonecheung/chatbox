@@ -169,13 +169,28 @@ body {
 .detail .sub { color: var(--muted); margin: 6px 0 14px; font-size: .9rem; }
 .detail h4 { margin: 18px 0 8px; font-size: .9rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
 
-.elev-item {
+.entrance-item {
+  border: 1px solid var(--line);
   border-left: 3px solid var(--brand);
-  padding: 4px 0 4px 12px; margin: 8px 0;
+  border-radius: 10px;
+  padding: 10px 12px; margin: 10px 0;
+  background: #f8fafc;
 }
-.elev-item .route { font-weight: 600; font-size: .92rem; }
-.elev-item .route .arrow { color: var(--brand); margin: 0 6px; }
-.elev-item .notes { color: var(--muted); font-size: .82rem; margin-top: 2px; }
+.entrance-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.entrance-name { font-weight: 600; font-size: .95rem; }
+.entrance-reach { margin-top: 7px; font-size: .82rem; display: flex; flex-wrap: wrap; align-items: center; gap: 5px; }
+.entrance-reach .reach-label { color: var(--muted); }
+.entrance-item .notes { color: var(--muted); font-size: .82rem; margin-top: 6px; line-height: 1.4; }
+
+.verified {
+  margin: 10px 0 0; font-size: .78rem; color: var(--ok);
+  background: var(--ok-bg); padding: 7px 10px; border-radius: 8px;
+}
+.report {
+  display: inline-block; margin-top: 16px;
+  font-size: .82rem; color: var(--muted); text-decoration: underline;
+}
+.report:hover { color: var(--no); }
 
 .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
 .tag { background: #f1f5f9; border-radius: 8px; padding: 4px 10px; font-size: .82rem; }

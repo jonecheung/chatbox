@@ -1,8 +1,9 @@
 {
   "meta": {
-    "description": "Curated elevator / step-free accessibility data for major Japanese train and metro stations.",
-    "disclaimer": "This is a community seed dataset. Elevator availability can change due to maintenance or construction. Always verify with the official operator before you travel, especially if you rely on step-free access.",
+    "description": "Curated step-free / lift accessibility data for major Japanese train and metro stations. v1 focuses on Tokyo.",
+    "disclaimer": "Community seed dataset. Lift availability can change due to maintenance or construction. Always verify with the official operator before you travel if you rely on step-free access.",
     "lastUpdated": "2026-06-17",
+    "reportUrl": "https://github.com/jonecheung/chatbox/issues/new?title=Station%20data%20correction",
     "sources": [
       "JR East station information (https://www.jreast.co.jp/e/stations/)",
       "Tokyo Metro barrier-free station info (https://www.tokyometro.jp/en/station/)",
@@ -21,12 +22,12 @@
       "operators": ["JR East", "Tokyo Metro"],
       "lines": ["Yamanote", "Chuo", "Keihin-Tohoku", "Tokaido / Tohoku Shinkansen", "Marunouchi"],
       "stepFree": "yes",
-      "elevators": [
-        { "from": "Street (Marunouchi side)", "to": "Central concourse", "notes": "Marunouchi North & South elevators connect the plaza to the gates." },
-        { "from": "Concourse", "to": "All JR platforms", "notes": "Each numbered platform has at least one elevator." },
-        { "from": "Concourse", "to": "Marunouchi Line platform", "notes": "Elevator near the Marunouchi underground passage." }
+      "entrances": [
+        { "exit": "Marunouchi North", "hasLift": true, "toPlatforms": ["Yamanote", "Chuo", "Keihin-Tohoku", "Tokaido / Tohoku Shinkansen"], "notes": "Lift from the Marunouchi plaza to the central concourse, then lift to each platform." },
+        { "exit": "Marunouchi (underground passage)", "hasLift": true, "toPlatforms": ["Marunouchi"], "notes": "Step-free route to the Marunouchi Line platform." },
+        { "exit": "Yaesu Central", "hasLift": true, "toPlatforms": ["Yamanote", "Keihin-Tohoku", "Tokaido / Tohoku Shinkansen"], "notes": "Lift to concourse and platforms on the Yaesu side." }
       ],
-      "accessibleExits": ["Marunouchi North", "Marunouchi South", "Yaesu Central"],
+      "lastVerified": "2026-06-17",
       "officialUrl": "https://www.jreast.co.jp/e/stations/e1039.html"
     },
     {
@@ -36,14 +37,14 @@
       "city": "Tokyo",
       "lat": 35.690921,
       "lng": 139.700258,
-      "operators": ["JR East", "Tokyo Metro", "Toei", "Odakyu", "Keio"],
-      "lines": ["Yamanote", "Chuo", "Saikyo", "Shonan-Shinjuku", "Marunouchi", "Oedo"],
+      "operators": ["JR East", "Tokyo Metro", "Toei"],
+      "lines": ["Yamanote", "Chuo", "Saikyo", "Marunouchi", "Oedo"],
       "stepFree": "yes",
-      "elevators": [
-        { "from": "Street (East / West / South exits)", "to": "Concourse", "notes": "Multiple elevators; New South Gate is the easiest fully step-free route." },
-        { "from": "Concourse", "to": "All JR platforms", "notes": "Every platform has an elevator, though the station is large — allow extra time." }
+      "entrances": [
+        { "exit": "New South Gate", "hasLift": true, "toPlatforms": ["Yamanote", "Chuo", "Saikyo"], "notes": "Easiest fully step-free route; lift from street level to concourse, then to platforms." },
+        { "exit": "East Exit", "hasLift": true, "toPlatforms": ["Yamanote", "Marunouchi"], "notes": "Lift to concourse; connects toward the Marunouchi Line." }
       ],
-      "accessibleExits": ["New South Gate (Shinjuku Expressway Bus Terminal side)", "East Exit"],
+      "lastVerified": "2026-06-17",
       "officialUrl": "https://www.jreast.co.jp/e/stations/e1071.html"
     },
     {
@@ -53,14 +54,14 @@
       "city": "Tokyo",
       "lat": 35.658034,
       "lng": 139.701636,
-      "operators": ["JR East", "Tokyo Metro", "Tokyu", "Keio"],
-      "lines": ["Yamanote", "Saikyo", "Shonan-Shinjuku", "Ginza", "Hanzomon", "Fukutoshin"],
+      "operators": ["JR East", "Tokyo Metro", "Tokyu"],
+      "lines": ["Yamanote", "Saikyo", "Ginza", "Hanzomon", "Fukutoshin"],
       "stepFree": "yes",
-      "elevators": [
-        { "from": "Street (Hachiko / East side)", "to": "Concourse", "notes": "Station is undergoing redevelopment; signage to elevators is well marked." },
-        { "from": "Concourse", "to": "JR & Ginza Line platforms", "notes": "Ginza Line platform on the 3rd floor has dedicated elevators." }
+      "entrances": [
+        { "exit": "East Exit", "hasLift": true, "toPlatforms": ["Yamanote", "Saikyo"], "notes": "Lift to the JR concourse; well-signed despite ongoing redevelopment." },
+        { "exit": "Ginza Line concourse", "hasLift": true, "toPlatforms": ["Ginza"], "notes": "Dedicated lifts to the 3rd-floor Ginza Line platform." }
       ],
-      "accessibleExits": ["East Exit", "Hachiko Exit (via elevator)"],
+      "lastVerified": "2026-06-17",
       "officialUrl": "https://www.jreast.co.jp/e/stations/e1051.html"
     },
     {
@@ -73,11 +74,11 @@
       "operators": ["JR East", "JR Central", "Keikyu"],
       "lines": ["Yamanote", "Keihin-Tohoku", "Tokaido", "Tokaido Shinkansen", "Keikyu Main"],
       "stepFree": "yes",
-      "elevators": [
-        { "from": "Street (Konan / Takanawa exits)", "to": "Central concourse", "notes": "Wide step-free concourse connects both sides." },
-        { "from": "Concourse", "to": "All platforms incl. Shinkansen", "notes": "Shinkansen transfer gate has its own elevators." }
+      "entrances": [
+        { "exit": "Konan Exit (east)", "hasLift": true, "toPlatforms": ["Yamanote", "Keihin-Tohoku", "Tokaido"], "notes": "Lift from street to the wide central concourse, then to each platform." },
+        { "exit": "Takanawa Exit (west)", "hasLift": true, "toPlatforms": ["Yamanote", "Tokaido Shinkansen"], "notes": "Step-free to concourse; Shinkansen transfer gate has its own lifts." }
       ],
-      "accessibleExits": ["Konan Exit (east)", "Takanawa Exit (west)"],
+      "lastVerified": "2026-06-17",
       "officialUrl": "https://www.jreast.co.jp/e/stations/e1069.html"
     },
     {
@@ -87,14 +88,14 @@
       "city": "Tokyo",
       "lat": 35.713768,
       "lng": 139.777254,
-      "operators": ["JR East", "Tokyo Metro", "Keisei"],
+      "operators": ["JR East", "Tokyo Metro"],
       "lines": ["Yamanote", "Keihin-Tohoku", "Tohoku / Hokuriku Shinkansen", "Ginza", "Hibiya"],
       "stepFree": "yes",
-      "elevators": [
-        { "from": "Street (Shinobazu / Park exits)", "to": "Concourse", "notes": "Park Exit elevator gives direct access toward Ueno Park." },
-        { "from": "Concourse", "to": "All JR & Shinkansen platforms", "notes": "Elevators on each platform." }
+      "entrances": [
+        { "exit": "Park Exit", "hasLift": true, "toPlatforms": ["Yamanote", "Keihin-Tohoku"], "notes": "Lift to concourse with direct access toward Ueno Park." },
+        { "exit": "Shinobazu Exit", "hasLift": true, "toPlatforms": ["Yamanote", "Tohoku / Hokuriku Shinkansen"], "notes": "Lift to concourse and Shinkansen platforms." }
       ],
-      "accessibleExits": ["Shinobazu Exit", "Park Exit"],
+      "lastVerified": "2026-06-17",
       "officialUrl": "https://www.jreast.co.jp/e/stations/e1043.html"
     },
     {
@@ -104,14 +105,14 @@
       "city": "Tokyo",
       "lat": 35.728926,
       "lng": 139.71038,
-      "operators": ["JR East", "Tokyo Metro", "Tobu", "Seibu"],
-      "lines": ["Yamanote", "Saikyo", "Shonan-Shinjuku", "Marunouchi", "Yurakucho", "Fukutoshin"],
+      "operators": ["JR East", "Tokyo Metro"],
+      "lines": ["Yamanote", "Saikyo", "Marunouchi", "Yurakucho", "Fukutoshin"],
       "stepFree": "yes",
-      "elevators": [
-        { "from": "Street (East / West exits)", "to": "Concourse", "notes": "Connected directly to department-store elevators on some exits." },
-        { "from": "Concourse", "to": "All JR platforms", "notes": "Each platform served by elevator." }
+      "entrances": [
+        { "exit": "East Exit", "hasLift": true, "toPlatforms": ["Yamanote", "Saikyo"], "notes": "Lift to concourse; some routes connect to department-store lifts." },
+        { "exit": "West Exit", "hasLift": true, "toPlatforms": ["Yamanote", "Marunouchi"], "notes": "Step-free toward the Marunouchi Line." }
       ],
-      "accessibleExits": ["East Exit", "West Exit"],
+      "lastVerified": "2026-06-17",
       "officialUrl": "https://www.jreast.co.jp/e/stations/e1064.html"
     },
     {
@@ -121,15 +122,47 @@
       "city": "Tokyo",
       "lat": 35.698683,
       "lng": 139.774219,
-      "operators": ["JR East", "Tokyo Metro", "Tsukuba Express"],
+      "operators": ["JR East", "Tokyo Metro"],
       "lines": ["Yamanote", "Keihin-Tohoku", "Sobu", "Hibiya"],
       "stepFree": "yes",
-      "elevators": [
-        { "from": "Street (Electric Town / Showa-dori exits)", "to": "Concourse", "notes": "Electric Town Exit has a step-free route to street level." },
-        { "from": "Concourse", "to": "All JR platforms", "notes": "Elevators serve Yamanote, Keihin-Tohoku and Sobu platforms." }
+      "entrances": [
+        { "exit": "Electric Town Exit", "hasLift": true, "toPlatforms": ["Yamanote", "Keihin-Tohoku", "Sobu"], "notes": "Step-free route from street to concourse, then lifts to platforms." },
+        { "exit": "Showa-dori Exit", "hasLift": true, "toPlatforms": ["Hibiya"], "notes": "Lift toward the Hibiya Line." }
       ],
-      "accessibleExits": ["Electric Town Exit", "Showa-dori Exit"],
+      "lastVerified": "2026-06-17",
       "officialUrl": "https://www.jreast.co.jp/e/stations/e1003.html"
+    },
+    {
+      "id": "ginza",
+      "name": "Ginza",
+      "nameJa": "銀座",
+      "city": "Tokyo",
+      "lat": 35.671989,
+      "lng": 139.76402,
+      "operators": ["Tokyo Metro"],
+      "lines": ["Ginza", "Marunouchi", "Hibiya"],
+      "stepFree": "yes",
+      "entrances": [
+        { "exit": "Exit C8", "hasLift": true, "toPlatforms": ["Ginza", "Marunouchi", "Hibiya"], "notes": "Lift from street to concourse; step-free interchange between all three lines." }
+      ],
+      "lastVerified": "2026-06-17",
+      "officialUrl": "https://www.tokyometro.jp/en/station/ginza/"
+    },
+    {
+      "id": "shinjuku-3chome",
+      "name": "Shinjuku-sanchome",
+      "nameJa": "新宿三丁目",
+      "city": "Tokyo",
+      "lat": 35.690921,
+      "lng": 139.705383,
+      "operators": ["Tokyo Metro", "Toei"],
+      "lines": ["Marunouchi", "Fukutoshin", "Shinjuku"],
+      "stepFree": "yes",
+      "entrances": [
+        { "exit": "Exit E", "hasLift": true, "toPlatforms": ["Marunouchi", "Fukutoshin"], "notes": "Lift to street near the department stores; step-free to both platforms." }
+      ],
+      "lastVerified": "2026-06-17",
+      "officialUrl": "https://www.tokyometro.jp/en/station/shinjuku-sanchome/"
     },
     {
       "id": "asakusa",
@@ -141,11 +174,10 @@
       "operators": ["Tokyo Metro", "Toei", "Tobu"],
       "lines": ["Ginza", "Asakusa", "Tobu Skytree"],
       "stepFree": "partial",
-      "elevators": [
-        { "from": "Street", "to": "Ginza Line concourse", "notes": "Elevator available but routes between operators can require going up to street level." },
-        { "from": "Concourse", "to": "Platforms", "notes": "Check the specific line — transfers are not all step-free." }
+      "entrances": [
+        { "exit": "Exit A (near Kaminarimon)", "hasLift": true, "toPlatforms": ["Ginza"], "notes": "Lift to the Ginza Line. Transfers between operators may require going up to street level — not all routes are step-free." }
       ],
-      "accessibleExits": ["Exit A (near Kaminarimon, has elevator)"],
+      "lastVerified": "2026-06-17",
       "officialUrl": "https://www.tokyometro.jp/en/station/asakusa/"
     },
     {
@@ -158,46 +190,11 @@
       "operators": ["Tobu"],
       "lines": ["Tobu Skytree"],
       "stepFree": "yes",
-      "elevators": [
-        { "from": "Street", "to": "Concourse", "notes": "Direct elevator access to the Skytree Town complex." },
-        { "from": "Concourse", "to": "Platform", "notes": "Step-free to platform." }
+      "entrances": [
+        { "exit": "Main Exit (Skytree Town)", "hasLift": true, "toPlatforms": ["Tobu Skytree"], "notes": "Direct lift access between the Skytree Town complex and the platform." }
       ],
-      "accessibleExits": ["Main Exit (Skytree Town)"],
+      "lastVerified": "2026-06-17",
       "officialUrl": "https://www.tobu.co.jp/en/"
-    },
-    {
-      "id": "shinjuku-3chome",
-      "name": "Shinjuku-sanchome",
-      "nameJa": "新宿三丁目",
-      "city": "Tokyo",
-      "lat": 35.690921,
-      "lng": 139.705383,
-      "operators": ["Tokyo Metro", "Toei"],
-      "lines": ["Marunouchi", "Fukutoshin", "Shinjuku"],
-      "stepFree": "yes",
-      "elevators": [
-        { "from": "Street", "to": "Concourse", "notes": "Elevator at Exit E connects to street level near department stores." },
-        { "from": "Concourse", "to": "Platforms", "notes": "Step-free to Marunouchi and Fukutoshin platforms." }
-      ],
-      "accessibleExits": ["Exit E"],
-      "officialUrl": "https://www.tokyometro.jp/en/station/shinjuku-sanchome/"
-    },
-    {
-      "id": "ginza",
-      "name": "Ginza",
-      "nameJa": "銀座",
-      "city": "Tokyo",
-      "lat": 35.671989,
-      "lng": 139.76402,
-      "operators": ["Tokyo Metro"],
-      "lines": ["Ginza", "Marunouchi", "Hibiya"],
-      "stepFree": "yes",
-      "elevators": [
-        { "from": "Street", "to": "Concourse", "notes": "Elevator at exit C8 area; multiple barrier-free routes." },
-        { "from": "Concourse", "to": "All three line platforms", "notes": "Step-free interchange between lines." }
-      ],
-      "accessibleExits": ["Exit C8 (elevator)"],
-      "officialUrl": "https://www.tokyometro.jp/en/station/ginza/"
     },
     {
       "id": "haneda-t3",
@@ -209,148 +206,11 @@
       "operators": ["Keikyu", "Tokyo Monorail"],
       "lines": ["Keikyu Airport", "Tokyo Monorail"],
       "stepFree": "yes",
-      "elevators": [
-        { "from": "Terminal building", "to": "Concourse", "notes": "Direct step-free connection from the international terminal." },
-        { "from": "Concourse", "to": "Platforms", "notes": "Elevators to both Keikyu and Monorail platforms." }
+      "entrances": [
+        { "exit": "Terminal 3 connection", "hasLift": true, "toPlatforms": ["Keikyu Airport", "Tokyo Monorail"], "notes": "Step-free connection from the terminal building; lifts to both platforms." }
       ],
-      "accessibleExits": ["Terminal 3 connection"],
+      "lastVerified": "2026-06-17",
       "officialUrl": "https://www.haneda-airport.jp/inter/en/"
-    },
-    {
-      "id": "yokohama",
-      "name": "Yokohama",
-      "nameJa": "横浜",
-      "city": "Yokohama",
-      "lat": 35.465828,
-      "lng": 139.622313,
-      "operators": ["JR East", "Tokyu", "Keikyu", "Sotetsu", "Yokohama Municipal Subway", "Minatomirai"],
-      "lines": ["Tokaido", "Yokosuka", "Keihin-Tohoku", "Negishi", "Tokyu Toyoko", "Minatomirai"],
-      "stepFree": "yes",
-      "elevators": [
-        { "from": "Street (East / West exits)", "to": "Concourse", "notes": "Connected to station shopping complexes with elevators." },
-        { "from": "Concourse", "to": "All JR platforms", "notes": "Each platform has an elevator." }
-      ],
-      "accessibleExits": ["West Exit", "East Exit"],
-      "officialUrl": "https://www.jreast.co.jp/e/stations/e1620.html"
-    },
-    {
-      "id": "osaka",
-      "name": "Osaka / Umeda",
-      "nameJa": "大阪・梅田",
-      "city": "Osaka",
-      "lat": 34.702485,
-      "lng": 135.495951,
-      "operators": ["JR West", "Osaka Metro", "Hankyu", "Hanshin"],
-      "lines": ["Osaka Loop", "Kyoto", "Kobe", "Takarazuka", "Midosuji"],
-      "stepFree": "yes",
-      "elevators": [
-        { "from": "Street / Grand Front complex", "to": "Concourse", "notes": "Multiple step-free routes via connected buildings." },
-        { "from": "Concourse", "to": "All JR platforms", "notes": "Elevators on every platform." }
-      ],
-      "accessibleExits": ["Central Exit", "Sakurabashi Exit"],
-      "officialUrl": "https://www.westjr.co.jp/global/en/"
-    },
-    {
-      "id": "shin-osaka",
-      "name": "Shin-Osaka",
-      "nameJa": "新大阪",
-      "city": "Osaka",
-      "lat": 34.733142,
-      "lng": 135.500214,
-      "operators": ["JR West", "JR Central", "Osaka Metro"],
-      "lines": ["Tokaido / Sanyo Shinkansen", "Osaka Loop (via Kyoto Line)", "Midosuji"],
-      "stepFree": "yes",
-      "elevators": [
-        { "from": "Street", "to": "Concourse", "notes": "Major Shinkansen hub with full step-free access." },
-        { "from": "Concourse", "to": "Shinkansen & local platforms", "notes": "Elevators to all platforms; subway connected by elevator." }
-      ],
-      "accessibleExits": ["East Exit", "Central Exit"],
-      "officialUrl": "https://www.westjr.co.jp/global/en/"
-    },
-    {
-      "id": "namba",
-      "name": "Namba",
-      "nameJa": "難波",
-      "city": "Osaka",
-      "lat": 34.66533,
-      "lng": 135.501602,
-      "operators": ["Osaka Metro", "Nankai", "Kintetsu", "Hanshin"],
-      "lines": ["Midosuji", "Yotsubashi", "Sennichimae", "Nankai Main"],
-      "stepFree": "yes",
-      "elevators": [
-        { "from": "Street", "to": "Concourse", "notes": "Elevators connect to the large underground Namba network." },
-        { "from": "Concourse", "to": "Platforms", "notes": "Step-free routes available; large interchange, allow time." }
-      ],
-      "accessibleExits": ["Nankai Namba central (elevator)"],
-      "officialUrl": "https://subway.osakametro.co.jp/en/"
-    },
-    {
-      "id": "kyoto",
-      "name": "Kyoto",
-      "nameJa": "京都",
-      "city": "Kyoto",
-      "lat": 34.985849,
-      "lng": 135.758767,
-      "operators": ["JR West", "JR Central", "Kintetsu", "Kyoto Municipal Subway"],
-      "lines": ["Tokaido Shinkansen", "Tokaido (Kyoto Line)", "Sagano", "Nara", "Karasuma"],
-      "stepFree": "yes",
-      "elevators": [
-        { "from": "Street (Karasuma / Hachijo exits)", "to": "Concourse", "notes": "Modern station building with extensive elevator coverage." },
-        { "from": "Concourse", "to": "All platforms incl. Shinkansen", "notes": "Elevators on every platform." }
-      ],
-      "accessibleExits": ["Karasuma Central Exit", "Hachijo Exit"],
-      "officialUrl": "https://www.westjr.co.jp/global/en/"
-    },
-    {
-      "id": "sapporo",
-      "name": "Sapporo",
-      "nameJa": "札幌",
-      "city": "Sapporo",
-      "lat": 43.068564,
-      "lng": 141.350739,
-      "operators": ["JR Hokkaido", "Sapporo Municipal Subway"],
-      "lines": ["Hakodate", "Chitose", "Namboku", "Toho"],
-      "stepFree": "yes",
-      "elevators": [
-        { "from": "Street / JR Tower", "to": "Concourse", "notes": "Connected to JR Tower complex with elevators." },
-        { "from": "Concourse", "to": "Platforms", "notes": "Step-free to JR and subway platforms." }
-      ],
-      "accessibleExits": ["North Exit", "South Exit"],
-      "officialUrl": "https://www.jrhokkaido.co.jp/global/index.html"
-    },
-    {
-      "id": "fukuoka-hakata",
-      "name": "Hakata",
-      "nameJa": "博多",
-      "city": "Fukuoka",
-      "lat": 33.589729,
-      "lng": 130.420727,
-      "operators": ["JR West", "JR Kyushu", "Fukuoka City Subway"],
-      "lines": ["Sanyo Shinkansen", "Kyushu Shinkansen", "Kagoshima", "Kuko (Airport)"],
-      "stepFree": "yes",
-      "elevators": [
-        { "from": "Street / JR Hakata City", "to": "Concourse", "notes": "Connected to the JR Hakata City complex with elevators." },
-        { "from": "Concourse", "to": "All platforms incl. Shinkansen", "notes": "Elevators throughout; subway linked by elevator." }
-      ],
-      "accessibleExits": ["Hakata Exit (Chikushi Exit)"],
-      "officialUrl": "https://www.jrkyushu.co.jp/english/"
-    },
-    {
-      "id": "nagoya",
-      "name": "Nagoya",
-      "nameJa": "名古屋",
-      "city": "Nagoya",
-      "lat": 35.170915,
-      "lng": 136.881537,
-      "operators": ["JR Central", "Meitetsu", "Kintetsu", "Nagoya Municipal Subway"],
-      "lines": ["Tokaido Shinkansen", "Tokaido", "Chuo", "Kansai", "Higashiyama"],
-      "stepFree": "yes",
-      "elevators": [
-        { "from": "Street / JR Central Towers", "to": "Concourse", "notes": "Connected to JR Central Towers with elevators." },
-        { "from": "Concourse", "to": "All platforms incl. Shinkansen", "notes": "Elevators on every platform." }
-      ],
-      "accessibleExits": ["Sakuradori Exit", "Taiko-dori Exit"],
-      "officialUrl": "https://global.jr-central.co.jp/en/"
     }
   ]
 }

@@ -18,7 +18,8 @@
     activeId: null,
     query: "",
     onlyStepFree: false,
-    city: ""
+    city: "",
+    reportUrl: ""
   };
 
   var map, markerLayer;
@@ -76,8 +77,11 @@
       })
       .then(function (data) {
         state.stations = data.stations || [];
-        if (data.meta && data.meta.disclaimer) {
-          els.disclaimer.textContent = "ⓘ " + data.meta.disclaimer;
+        if (data.meta) {
+          if (data.meta.disclaimer) {
+            els.disclaimer.textContent = "ⓘ " + data.meta.disclaimer;
+          }
+          state.reportUrl = data.meta.reportUrl || "";
         }
         populateCityFilter();
         applyFilters();
@@ -195,38 +199,53 @@
 
   function renderDetail(s) {
     var st = STATUS[s.stepFree] || STATUS.no;
-    var elevators = (s.elevators || []).map(function (e) {
+
+    var entrances = (s.entrances || []).map(function (e) {
+      var liftBadge = e.hasLift
+        ? '<span class="badge yes">🛗 Has lift</span>'
+        : '<span class="badge no">🚫 No lift</span>';
+      var platforms = (e.toPlatforms || []).map(function (p) {
+        return '<span class="line-pill">' + escapeHtml(p) + "</span>";
+      }).join("");
       return (
-        '<div class="elev-item">' +
-        '<div class="route">' + escapeHtml(e.from) + '<span class="arrow">→</span>' + escapeHtml(e.to) + "</div>" +
+        '<div class="entrance-item">' +
+        '<div class="entrance-head"><span class="entrance-name">' + escapeHtml(e.exit) + " exit</span>" + liftBadge + "</div>" +
+        (platforms
+          ? '<div class="entrance-reach"><span class="reach-label">Step-free to:</span> ' + platforms + "</div>"
+          : "") +
         (e.notes ? '<div class="notes">' + escapeHtml(e.notes) + "</div>" : "") +
         "</div>"
       );
-    }).join("") || '<p class="notes">No elevator detail recorded yet.</p>';
-
-    var exits = (s.accessibleExits || []).map(function (x) {
-      return '<span class="tag">' + escapeHtml(x) + "</span>";
-    }).join("") || '<span class="tag">Not recorded</span>';
+    }).join("") || '<p class="notes">No exit / lift detail recorded yet.</p>';
 
     var lines = (s.lines || []).map(function (l) {
       return '<span class="line-pill">' + escapeHtml(l) + "</span>";
     }).join("");
 
     var hotelQuery = encodeURIComponent("hotels near " + s.name + " station " + s.city + " Japan");
-    var mapsQuery = encodeURIComponent(s.name + " station " + s.city);
+    var navQuery = encodeURIComponent(s.name + " station " + s.city + " Japan");
+
+    var verified = s.lastVerified
+      ? '<p class="verified">✔ Last verified: ' + escapeHtml(s.lastVerified) + " · always confirm before you travel</p>"
+      : "";
+
+    var reportLink = state.reportUrl
+      ? '<a class="report" target="_blank" rel="noopener" href="' + escapeHtml(state.reportUrl) + '">⚑ Report a problem with this info</a>'
+      : "";
 
     els.detailBody.innerHTML =
       "<h2>" + escapeHtml(s.name) + '<span class="ja"> ' + escapeHtml(s.nameJa || "") + "</span></h2>" +
       '<p class="sub">' + escapeHtml(s.city) + " · " + escapeHtml((s.operators || []).join(", ")) + "</p>" +
       '<span class="badge ' + s.stepFree + '">' + st.icon + " " + st.label + "</span>" +
+      verified +
       "<h4>Lines</h4><div class=\"lines\">" + lines + "</div>" +
-      "<h4>Elevators / lifts</h4>" + elevators +
-      "<h4>Accessible exits</h4><div class=\"tag-row\">" + exits + "</div>" +
+      "<h4>Step-free exits (with lift → platform)</h4>" + entrances +
       '<div class="actions">' +
-      '<a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=' + hotelQuery + '">🏨 Find accessible hotels nearby</a>' +
-      '<a class="btn btn-secondary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=' + mapsQuery + '">🗺️ Open station in Google Maps</a>' +
+      '<a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=' + navQuery + '">🧭 Navigate to station (Google Maps)</a>' +
+      '<a class="btn btn-secondary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=' + hotelQuery + '">🏨 Find accessible hotels nearby</a>' +
       (s.officialUrl ? '<a class="btn btn-secondary" target="_blank" rel="noopener" href="' + escapeHtml(s.officialUrl) + '">ⓘ Official station info</a>' : "") +
-      "</div>";
+      "</div>" +
+      reportLink;
 
     els.detail.hidden = false;
   }
