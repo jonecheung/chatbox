@@ -186,12 +186,63 @@ body {
 .entrance-name { font-weight: 600; font-size: .95rem; }
 .entrance-reach { margin-top: 7px; font-size: .82rem; display: flex; flex-wrap: wrap; align-items: center; gap: 5px; }
 .entrance-reach .reach-label { color: var(--muted); }
+.lift-location {
+  margin-top: 8px;
+  font-size: .84rem;
+  line-height: 1.45;
+}
+.levels {
+  margin-top: 7px;
+  font-size: .82rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+}
+.reach-label { color: var(--muted); font-weight: 600; }
 .entrance-item .notes { color: var(--muted); font-size: .82rem; margin-top: 6px; line-height: 1.4; }
 
 .verified {
   margin: 10px 0 0; font-size: .78rem; color: var(--ok);
   background: var(--ok-bg); padding: 7px 10px; border-radius: 8px;
 }
+.research-notes {
+  margin: 10px 0 0;
+  font-size: .78rem;
+  line-height: 1.45;
+  color: var(--muted);
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.source-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+.source-link {
+  color: var(--brand);
+  font-size: .78rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+.confidence {
+  border-radius: 999px;
+  font-size: .68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  text-transform: capitalize;
+}
+.confidence-high { background: var(--ok-bg); color: var(--ok); }
+.confidence-medium { background: var(--warn-bg); color: var(--warn); }
+.confidence-low { background: var(--no-bg); color: var(--no); }
 .report {
   display: inline-block; margin-top: 16px;
   font-size: .82rem; color: var(--muted); text-decoration: underline;

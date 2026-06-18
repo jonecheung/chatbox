@@ -207,13 +207,33 @@
       var platforms = (e.toPlatforms || []).map(function (p) {
         return '<span class="line-pill">' + escapeHtml(p) + "</span>";
       }).join("");
+      var levels = (e.levels || []).map(function (level) {
+        return '<span class="tag">' + escapeHtml(level) + "</span>";
+      }).join("");
+      var source = e.sourceUrl
+        ? '<a class="source-link" target="_blank" rel="noopener" href="' + escapeHtml(e.sourceUrl) + '">' +
+            escapeHtml(e.sourceTitle || "Source") +
+          "</a>"
+        : "";
+      var confidence = e.confidence
+        ? '<span class="confidence confidence-' + escapeHtml(e.confidence) + '">' + escapeHtml(e.confidence) + " confidence</span>"
+        : "";
       return (
         '<div class="entrance-item">' +
         '<div class="entrance-head"><span class="entrance-name">' + escapeHtml(e.exit) + " exit</span>" + liftBadge + "</div>" +
+        (e.liftLocation
+          ? '<div class="lift-location"><span class="reach-label">Lift location:</span> ' + escapeHtml(e.liftLocation) + "</div>"
+          : "") +
+        (levels
+          ? '<div class="levels"><span class="reach-label">Levels:</span> ' + levels + "</div>"
+          : "") +
         (platforms
           ? '<div class="entrance-reach"><span class="reach-label">Step-free to:</span> ' + platforms + "</div>"
           : "") +
         (e.notes ? '<div class="notes">' + escapeHtml(e.notes) + "</div>" : "") +
+        (source || confidence
+          ? '<div class="source-row">' + source + confidence + "</div>"
+          : "") +
         "</div>"
       );
     }).join("") || '<p class="notes">No exit / lift detail recorded yet.</p>';
@@ -238,8 +258,9 @@
       '<p class="sub">' + escapeHtml(s.city) + " · " + escapeHtml((s.operators || []).join(", ")) + "</p>" +
       '<span class="badge ' + s.stepFree + '">' + st.label + "</span>" +
       verified +
+      (s.researchNotes ? '<p class="research-notes">' + escapeHtml(s.researchNotes) + "</p>" : "") +
       "<h4>Lines</h4><div class=\"lines\">" + lines + "</div>" +
-      "<h4>Step-free exits (with lift → platform)</h4>" + entrances +
+      "<h4>Step-free exits (lift location → platform)</h4>" + entrances +
       '<div class="actions">' +
       '<a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=' + navQuery + '">Navigate to station (Google Maps)</a>' +
       '<a class="btn btn-secondary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=' + hotelQuery + '">Find accessible hotels nearby</a>' +

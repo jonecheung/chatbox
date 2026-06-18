@@ -1,8 +1,8 @@
 {
   "meta": {
-    "description": "Curated step-free / lift accessibility data for major Japanese train and metro stations. v1 focuses on Tokyo.",
+    "description": "Curated step-free / lift accessibility data for major Japanese train and metro stations. v1 grows in tourist-priority batches.",
     "disclaimer": "Community seed dataset. Lift availability can change due to maintenance or construction. Always verify with the official operator before you travel if you rely on step-free access.",
-    "lastUpdated": "2026-06-17",
+    "lastUpdated": "2026-06-18",
     "reportUrl": "https://github.com/jonecheung/chatbox/issues/new?title=Station%20data%20correction",
     "sources": [
       "JR East station information (https://www.jreast.co.jp/e/stations/)",
@@ -15,20 +15,769 @@
     {
       "id": "tokyo",
       "name": "Tokyo",
-      "nameJa": "東京",
+      "nameJa": "東京駅",
+      "touristArea": "Marunouchi / Imperial Palace / Ginza",
       "city": "Tokyo",
-      "lat": 35.681236,
-      "lng": 139.767125,
-      "operators": ["JR East", "Tokyo Metro"],
-      "lines": ["Yamanote", "Chuo", "Keihin-Tohoku", "Tokaido / Tohoku Shinkansen", "Marunouchi"],
-      "stepFree": "yes",
+      "lat": 35.681167,
+      "lng": 139.767057,
+      "operators": [
+        "JR East",
+        "JR Central",
+        "Tokyo Metro"
+      ],
+      "lines": [
+        "Chuo Main Line",
+        "Keiyo Line",
+        "Keihin-Tohoku Line",
+        "Sobu Main Line (Rapid)",
+        "Tokaido Main Line",
+        "Yamanote Line",
+        "Yokosuka Line",
+        "Ueno-Tokyo Line",
+        "Tokaido Shinkansen",
+        "Tohoku Shinkansen",
+        "Joetsu Shinkansen",
+        "Hokuriku Shinkansen",
+        "Marunouchi Line"
+      ],
+      "stepFree": "partial",
       "entrances": [
-        { "exit": "Marunouchi North", "hasLift": true, "toPlatforms": ["Yamanote", "Chuo", "Keihin-Tohoku", "Tokaido / Tohoku Shinkansen"], "notes": "Lift from the Marunouchi plaza to the central concourse, then lift to each platform." },
-        { "exit": "Marunouchi (underground passage)", "hasLift": true, "toPlatforms": ["Marunouchi"], "notes": "Step-free route to the Marunouchi Line platform." },
-        { "exit": "Yaesu Central", "hasLift": true, "toPlatforms": ["Yamanote", "Keihin-Tohoku", "Tokaido / Tohoku Shinkansen"], "notes": "Lift to concourse and platforms on the Yaesu side." }
+        {
+          "exit": "Marunouchi North Exit / Yaesu Central-North area",
+          "hasLift": true,
+          "liftLocation": "Platform 4 (Yamanote inner loop): Elevator C at Kanda-direction side connects 2F-1F-B1F. Platform 5 (Yamanote outer loop): Elevator E at Kanda-direction side connects 2F-1F-B1F.",
+          "levels": [
+            "Platform (2F)",
+            "Concourse (1F)",
+            "Underground concourse (B1F)"
+          ],
+          "toPlatforms": [
+            "Yamanote Line platforms 4 and 5 (2F)",
+            "Keihin-Tohoku Line platform 3/6",
+            "Tokaido Main Line platforms 9-10"
+          ],
+          "notes": "Elevators C and E connect to Marunouchi Underground exits and Yaesu Underground Central exit via B1F. JR East confirms elevators, but detailed per-exit mapping is partly image-based.",
+          "sourceUrl": "https://www.jreast.co.jp/estation/stations/1039.html",
+          "sourceTitle": "駅構内図・バリアフリー情報(東京駅) - JR東日本",
+          "confidence": "medium"
+        },
+        {
+          "exit": "Marunouchi South Exit / Yaesu South area",
+          "hasLift": true,
+          "liftLocation": "Platform 4 (Yamanote inner loop): Elevator B at Yurakucho-direction side connects 2F-1F. Platform 5 (Yamanote outer loop): Elevator D at Yurakucho-direction side connects 2F-1F.",
+          "levels": [
+            "Platform (2F)",
+            "Concourse (1F)"
+          ],
+          "toPlatforms": [
+            "Yamanote Line platforms 4 and 5 (2F)"
+          ],
+          "notes": "Elevators B and D do not connect to B1F; use them for Marunouchi South and Yaesu South ground-level exits only.",
+          "sourceUrl": "https://www.jreast.co.jp/estation/stations/1039.html",
+          "sourceTitle": "駅構内図・バリアフリー情報(東京駅) - JR東日本",
+          "confidence": "medium"
+        },
+        {
+          "exit": "Exit M10-5 (Oazo Building)",
+          "hasLift": true,
+          "liftLocation": "Outside ticket gates, within Oazo building, connecting concourse to Exit M10-5 street level.",
+          "levels": [
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Marunouchi Line platform (central)"
+          ],
+          "notes": "Operating hours: 10:00 to last train. Requires the inside-gate elevator from platform center to ticket-gate level.",
+          "sourceUrl": "https://www.tokyometro.jp/station/tokyo/accessibility/index.html",
+          "sourceTitle": "バリアフリー設備 | 東京駅/M17 | 東京メトロ",
+          "confidence": "high"
+        },
+        {
+          "exit": "Elevator-only exit (Marubiru direction)",
+          "hasLift": true,
+          "liftLocation": "Outside ticket gates, elevator-only exit toward Marubiru (Maru Building) direction.",
+          "levels": [
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Marunouchi Line platform (central)"
+          ],
+          "notes": "Operating hours: first train to 24:00. Requires the inside-gate elevator from platform center to ticket-gate level.",
+          "sourceUrl": "https://www.tokyometro.jp/station/tokyo/accessibility/index.html",
+          "sourceTitle": "バリアフリー設備 | 東京駅/M17 | 東京メトロ",
+          "confidence": "high"
+        }
       ],
       "lastVerified": "2026-06-17",
-      "officialUrl": "https://www.jreast.co.jp/e/stations/e1039.html"
+      "officialUrl": "https://www.jreast.co.jp/estation/stations/1039.html",
+      "researchNotes": "JR East conventional-line detail is medium confidence where exact per-exit mapping is image-based. Tokyo Metro Marunouchi Line route is high confidence."
+    },
+    {
+      "id": "ginza",
+      "name": "Ginza",
+      "nameJa": "銀座駅",
+      "touristArea": "Ginza shopping district / Ginza Six / Wako",
+      "city": "Tokyo",
+      "lat": 35.67123,
+      "lng": 139.765,
+      "operators": [
+        "Tokyo Metro"
+      ],
+      "lines": [
+        "Ginza Line",
+        "Marunouchi Line",
+        "Hibiya Line"
+      ],
+      "stepFree": "yes",
+      "entrances": [
+        {
+          "exit": "Exit A7",
+          "hasLift": true,
+          "liftLocation": "Outside Ginza-yonchome Intersection Gate, elevator to Exit A7 street level.",
+          "levels": [
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Ginza Line platform 1 (towards Asakusa)"
+          ],
+          "notes": "Full route: platform 1 to Ginza-yonchome Intersection Gate to Exit A7. Elevator inside gate connects platform to gate; elevator outside gate connects gate to street.",
+          "sourceUrl": "https://www.tokyometro.jp/lang_en/station/ginza/accessibility/index.html",
+          "sourceTitle": "Barrier-Free Facilities | Ginza Station/G09/M16/H09",
+          "confidence": "high"
+        },
+        {
+          "exit": "Exit B2",
+          "hasLift": true,
+          "liftLocation": "Outside Ginza-yonchome Intersection Gate (Ginza Line) or Central Gate (Hibiya Line), elevator to Exit B2 street level.",
+          "levels": [
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Ginza Line platform 1 (towards Asakusa)",
+            "Hibiya Line platform (central)"
+          ],
+          "notes": "Operating hours restricted: 6:00 to 22:00 for Ginza Line route. Hibiya Line route uses platform (central) to Central Gate to Exit B2.",
+          "sourceUrl": "https://www.tokyometro.jp/lang_en/station/ginza/accessibility/index.html",
+          "sourceTitle": "Barrier-Free Facilities | Ginza Station/G09/M16/H09",
+          "confidence": "high"
+        },
+        {
+          "exit": "Elevator-only exit (Sukiyabashi Intersection Gate)",
+          "hasLift": true,
+          "liftLocation": "Outside Sukiyabashi Intersection Gate, elevator to street-level elevator-only exit.",
+          "levels": [
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Marunouchi Line platform (central)"
+          ],
+          "notes": "Full route: Marunouchi Line platform (central) to Sukiyabashi Intersection Gate to elevator-only exit.",
+          "sourceUrl": "https://www.tokyometro.jp/lang_en/station/ginza/accessibility/index.html",
+          "sourceTitle": "Barrier-Free Facilities | Ginza Station/G09/M16/H09",
+          "confidence": "high"
+        },
+        {
+          "exit": "Exit B8",
+          "hasLift": true,
+          "liftLocation": "Outside Central Gate, elevator to Exit B8 street level.",
+          "levels": [
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Hibiya Line platform (central)"
+          ],
+          "notes": "Operating hours restricted: Monday 7:00-23:00, Tuesday-Friday 6:00-23:00, Saturday 6:00-22:00, Sunday 8:00-21:00.",
+          "sourceUrl": "https://www.tokyometro.jp/lang_en/station/ginza/accessibility/index.html",
+          "sourceTitle": "Barrier-Free Facilities | Ginza Station/G09/M16/H09",
+          "confidence": "high"
+        }
+      ],
+      "lastVerified": "2026-06-17",
+      "officialUrl": "https://www.tokyometro.jp/lang_en/station/ginza/accessibility/index.html",
+      "researchNotes": "All three Tokyo Metro lines have confirmed one-route step-free access. Some exits have restricted operating hours; inter-line transfers may require multiple elevator routes."
+    },
+    {
+      "id": "yurakucho",
+      "name": "Yurakucho",
+      "nameJa": "有楽町駅",
+      "touristArea": "Yurakucho / Hibiya / Tokyo International Forum",
+      "city": "Tokyo",
+      "lat": 35.674877,
+      "lng": 139.763646,
+      "operators": [
+        "JR East",
+        "Tokyo Metro"
+      ],
+      "lines": [
+        "Yamanote Line",
+        "Keihin-Tohoku Line",
+        "Tokaido Main Line",
+        "Yurakucho Line"
+      ],
+      "stepFree": "partial",
+      "entrances": [
+        {
+          "exit": "Central Exit",
+          "hasLift": true,
+          "liftLocation": "JR East Central Exit area, elevator connecting 1F and 2F levels to platforms.",
+          "levels": [
+            "Street (1F)",
+            "Concourse",
+            "Platform (2F)"
+          ],
+          "toPlatforms": [
+            "Yamanote Line platforms",
+            "Keihin-Tohoku Line platforms"
+          ],
+          "notes": "JR East confirms Central Exit elevator route to all platforms. Other JR exits without elevator access include Central West, International Forum, Ginza, and Hibiya exits.",
+          "sourceUrl": "https://www.jreast.co.jp/estation/stations/1617.html",
+          "sourceTitle": "駅構内図・バリアフリー情報(有楽町駅) - JR東日本",
+          "confidence": "high"
+        },
+        {
+          "exit": "Kyobashi Exit",
+          "hasLift": true,
+          "liftLocation": "JR East Kyobashi Exit area, elevator connecting 1F and 2F levels to platforms.",
+          "levels": [
+            "Street (1F)",
+            "Concourse",
+            "Platform (2F)"
+          ],
+          "toPlatforms": [
+            "Yamanote Line platforms",
+            "Keihin-Tohoku Line platforms"
+          ],
+          "notes": "JR East confirms Kyobashi Exit elevator route to all platforms.",
+          "sourceUrl": "https://www.jreast.co.jp/estation/stations/1617.html",
+          "sourceTitle": "駅構内図・バリアフリー情報(有楽町駅) - JR東日本",
+          "confidence": "high"
+        },
+        {
+          "exit": "Exit 7 (Metro Yurakucho Line)",
+          "hasLift": true,
+          "liftLocation": "Outside JR Yurakucho Station Gate, elevator to Exit 7 street level.",
+          "levels": [
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Yurakucho Line platform (central)"
+          ],
+          "notes": "Full route: Yurakucho Line platform (central) to inside-gate elevator to gate level, then outside-gate elevator to Exit 7. JR/Metro transfer is not a single step-free route; use surface streets.",
+          "sourceUrl": "https://www.tokyometro.jp/lang_en/station/yurakucho/accessibility/index.html",
+          "sourceTitle": "Barrier-Free Facilities | Yurakucho Station/Y18 | Tokyo Metro",
+          "confidence": "high"
+        }
+      ],
+      "lastVerified": "2026-06-17",
+      "officialUrl": "https://www.jreast.co.jp/estation/stations/1617.html",
+      "researchNotes": "JR and Metro are both step-free individually, but transfer is via different exits and surface streets."
+    },
+    {
+      "id": "nihombashi",
+      "name": "Nihombashi",
+      "nameJa": "日本橋駅",
+      "touristArea": "Nihombashi / COREDO / Takashimaya",
+      "city": "Tokyo",
+      "lat": 35.6822,
+      "lng": 139.774578,
+      "operators": [
+        "Tokyo Metro",
+        "Toei Subway"
+      ],
+      "lines": [
+        "Ginza Line",
+        "Tozai Line",
+        "Asakusa Line"
+      ],
+      "stepFree": "yes",
+      "entrances": [
+        {
+          "exit": "Exit B12 (COREDO Nihombashi)",
+          "hasLift": true,
+          "liftLocation": "Outside Nihombashi Intersection Gate, elevator to Exit B12 within COREDO Nihombashi building.",
+          "levels": [
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Ginza Line platforms 1 and 2",
+            "Tozai Line platform (central)"
+          ],
+          "notes": "Operating hours: 6:00 to 0:00 for Ginza Line route; 6:00 to 0:30 for Tozai Line route.",
+          "sourceUrl": "https://www.tokyometro.jp/lang_en/station/nihombashi/accessibility/index.html",
+          "sourceTitle": "Barrier-Free Facilities | Nihombashi Station/G11/T10",
+          "confidence": "high"
+        },
+        {
+          "exit": "Exit B0 (Nihon-koa-nihombashi Building)",
+          "hasLift": true,
+          "liftLocation": "Outside Takashimaya Gate, elevator to Exit B0.",
+          "levels": [
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Ginza Line platform 1 (towards Shibuya)"
+          ],
+          "notes": "Operating hours: 7:00 to 22:00.",
+          "sourceUrl": "https://www.tokyometro.jp/lang_en/station/nihombashi/accessibility/index.html",
+          "sourceTitle": "Barrier-Free Facilities | Nihombashi Station/G11/T10",
+          "confidence": "high"
+        },
+        {
+          "exit": "Exit B9",
+          "hasLift": true,
+          "liftLocation": "Outside Gofukubashi Intersection Gate, elevator to Exit B9.",
+          "levels": [
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Ginza Line platforms (via Gofukubashi Intersection Gate)"
+          ],
+          "notes": "Full route: Ginza Line platform to Gofukubashi Intersection Gate to Exit B9.",
+          "sourceUrl": "https://www.tokyometro.jp/lang_en/station/nihombashi/accessibility/index.html",
+          "sourceTitle": "Barrier-Free Facilities | Nihombashi Station/G11/T10",
+          "confidence": "high"
+        },
+        {
+          "exit": "Exit A7",
+          "hasLift": true,
+          "liftLocation": "Outside Gofukubashi Intersection Gate, elevator to Exit A7.",
+          "levels": [
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Tozai Line platform (via Gofukubashi Intersection Gate)"
+          ],
+          "notes": "Operating hours: 7:00 to 23:30.",
+          "sourceUrl": "https://www.tokyometro.jp/lang_en/station/nihombashi/accessibility/index.html",
+          "sourceTitle": "Barrier-Free Facilities | Nihombashi Station/G11/T10",
+          "confidence": "high"
+        },
+        {
+          "exit": "Exit A4",
+          "hasLift": true,
+          "liftLocation": "Outside Gofukubashi Intersection Gate, elevator to Exit A4.",
+          "levels": [
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Tozai Line platform (via Gofukubashi Intersection Gate)"
+          ],
+          "notes": "Operating hours: 6:00 to 23:30.",
+          "sourceUrl": "https://www.tokyometro.jp/lang_en/station/nihombashi/accessibility/index.html",
+          "sourceTitle": "Barrier-Free Facilities | Nihombashi Station/G11/T10",
+          "confidence": "high"
+        }
+      ],
+      "lastVerified": "2026-06-17",
+      "officialUrl": "https://www.tokyometro.jp/lang_en/station/nihombashi/accessibility/index.html",
+      "researchNotes": "Tokyo Metro Ginza and Tozai routes are high confidence. Toei Asakusa Line exact elevator/exit data was not verified from official Toei page."
+    },
+    {
+      "id": "otemachi",
+      "name": "Otemachi",
+      "nameJa": "大手町駅",
+      "touristArea": "Otemachi / Imperial Palace / Marunouchi business district",
+      "city": "Tokyo",
+      "lat": 35.684699,
+      "lng": 139.765964,
+      "operators": [
+        "Tokyo Metro",
+        "Toei Subway"
+      ],
+      "lines": [
+        "Marunouchi Line",
+        "Tozai Line",
+        "Chiyoda Line",
+        "Hanzomon Line",
+        "Mita Line"
+      ],
+      "stepFree": "partial",
+      "entrances": [
+        {
+          "exit": "Exit A5 (Nomura Building)",
+          "hasLift": true,
+          "liftLocation": "Outside Marunouchi Gate, elevator to Exit A5 near Nomura Building.",
+          "levels": [
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Marunouchi Line platform 1 (toward Ogikubo)"
+          ],
+          "notes": "Full route: Marunouchi Line platform 1 to Marunouchi Gate to Exit A5.",
+          "sourceUrl": "https://www.tokyometro.jp/lang_en/station/otemachi/accessibility/index.html",
+          "sourceTitle": "Barrier-Free Facilities | Otemachi Station/M18/T09/C11/Z08",
+          "confidence": "high"
+        },
+        {
+          "exit": "Exit B2c (Oazo Building)",
+          "hasLift": true,
+          "liftLocation": "Outside Central East Gate, elevator to Exit B2c within Oazo Building.",
+          "levels": [
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Tozai Line platform (central/toward Nishi-funabashi)"
+          ],
+          "notes": "Full route: Tozai Line platform (central) to Central East Gate to Exit B2c.",
+          "sourceUrl": "https://www.tokyometro.jp/lang_en/station/otemachi/accessibility/index.html",
+          "sourceTitle": "Barrier-Free Facilities | Otemachi Station/M18/T09/C11/Z08",
+          "confidence": "high"
+        },
+        {
+          "exit": "Exit B1 / B1a (Eiraku Building / Otemachi Tower)",
+          "hasLift": true,
+          "liftLocation": "Outside West Gate, elevator to Exit B1 (Eiraku Building) or Exit B1a (Otemachi Tower).",
+          "levels": [
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Tozai Line platform (central)"
+          ],
+          "notes": "Full route: Tozai Line platform (central) to West Gate to Exit B1/B1a.",
+          "sourceUrl": "https://www.tokyometro.jp/lang_en/station/otemachi/accessibility/index.html",
+          "sourceTitle": "Barrier-Free Facilities | Otemachi Station/M18/T09/C11/Z08",
+          "confidence": "high"
+        },
+        {
+          "exit": "Exit C14",
+          "hasLift": true,
+          "liftLocation": "Outside Hibiya-dori Avenue Gate, elevator to Exit C14.",
+          "levels": [
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Chiyoda Line platform (central/toward Yoyogi-uehara)"
+          ],
+          "notes": "Full route: Chiyoda Line platform (central) to Hibiya-dori Avenue Gate to Exit C14.",
+          "sourceUrl": "https://www.tokyometro.jp/lang_en/station/otemachi/accessibility/index.html",
+          "sourceTitle": "Barrier-Free Facilities | Otemachi Station/M18/T09/C11/Z08",
+          "confidence": "high"
+        },
+        {
+          "exit": "Exit E1 (Tokyo Sankei Building)",
+          "hasLift": true,
+          "liftLocation": "Outside Sankei-mae Intersection Gate, elevator to Exit E1 (Tokyo Sankei Building).",
+          "levels": [
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Hanzomon Line platform (toward Shibuya)"
+          ],
+          "notes": "Operating hours: 7:00 to 22:30. Full route: Hanzomon Line platform to connecting passage to Sankei-mae Intersection Gate to Exit E1.",
+          "sourceUrl": "https://www.tokyometro.jp/lang_en/station/otemachi/accessibility/index.html",
+          "sourceTitle": "Barrier-Free Facilities | Otemachi Station/M18/T09/C11/Z08",
+          "confidence": "high"
+        },
+        {
+          "exit": "Toei Mita Line elevator",
+          "hasLift": true,
+          "liftLocation": "Toei Mita Line platform area; elevator connects platform to concourse to street level.",
+          "levels": [
+            "Platform",
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Mita Line platform"
+          ],
+          "notes": "Toei confirms 3 elevators and 1 step-free route at Otemachi Mita Line station, but exact exit number is not specified on the official Toei page.",
+          "sourceUrl": "https://www.kotsu.metro.tokyo.jp/subway/stations/otemachi.html",
+          "sourceTitle": "大手町 | 東京都交通局",
+          "confidence": "medium"
+        }
+      ],
+      "lastVerified": "2026-06-17",
+      "officialUrl": "https://www.tokyometro.jp/lang_en/station/otemachi/accessibility/index.html",
+      "researchNotes": "Tokyo Metro lines are high confidence. Toei Mita line is confirmed step-free but exact exit number is medium confidence. Inter-line transfers can involve long detours."
+    },
+    {
+      "id": "shimbashi",
+      "name": "Shimbashi",
+      "nameJa": "新橋駅",
+      "touristArea": "Shimbashi / Shiodome / Ginza south",
+      "city": "Tokyo",
+      "lat": 35.666301,
+      "lng": 139.758679,
+      "operators": [
+        "JR East",
+        "Tokyo Metro",
+        "Toei Subway",
+        "Yurikamome"
+      ],
+      "lines": [
+        "Yamanote Line",
+        "Keihin-Tohoku Line",
+        "Tokaido Main Line",
+        "Yokosuka Line",
+        "Ginza Line",
+        "Asakusa Line",
+        "Yurikamome"
+      ],
+      "stepFree": "partial",
+      "entrances": [
+        {
+          "exit": "Elevator-only exit (Tokyo Metro Ginza Line)",
+          "hasLift": true,
+          "liftLocation": "Outside JR Shimbashi Station ticket gates, elevator connecting B1F concourse to 1F street level.",
+          "levels": [
+            "Concourse (B1F)",
+            "Street (1F)"
+          ],
+          "toPlatforms": [
+            "Ginza Line platforms 1 and 2"
+          ],
+          "notes": "Full route: Ginza Line platforms 1 and 2 (Asakusa side) to inside-gate elevator B2F-B1F, then outside-gate elevator B1F-1F.",
+          "sourceUrl": "https://www.tokyometro.jp/station/shimbashi/accessibility/index.html",
+          "sourceTitle": "バリアフリー設備 | 新橋駅/G08 | 東京メトロ",
+          "confidence": "high"
+        },
+        {
+          "exit": "Toei Asakusa Line elevator",
+          "hasLift": true,
+          "liftLocation": "Toei Asakusa Line platform and ground level; elevators connect platform to concourse to street.",
+          "levels": [
+            "Platform",
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Asakusa Line platform"
+          ],
+          "notes": "Toei confirms 2 elevators and 1 step-free route. Specific exit numbers are not listed on the official Toei page.",
+          "sourceUrl": "https://www.kotsu.metro.tokyo.jp/subway/stations/shimbashi.html",
+          "sourceTitle": "新橋 | 東京都交通局",
+          "confidence": "medium"
+        },
+        {
+          "exit": "JR East (various exits)",
+          "hasLift": true,
+          "liftLocation": "JR East Shimbashi Station has elevators confirmed; Karasumori Exit side elevator to pedestrian deck level noted by ecomo-rakuraku.",
+          "levels": [
+            "Street",
+            "Concourse",
+            "Platform"
+          ],
+          "toPlatforms": [
+            "Yamanote Line",
+            "Keihin-Tohoku Line",
+            "Tokaido Main Line platforms"
+          ],
+          "notes": "JR East confirms elevators exist, but exact per-exit elevator details are image-based on the official page.",
+          "sourceUrl": "https://www.jreast.co.jp/estation/stations/877.html",
+          "sourceTitle": "駅構内図・バリアフリー情報(新橋駅) - JR東日本",
+          "confidence": "medium"
+        }
+      ],
+      "lastVerified": "2026-06-17",
+      "officialUrl": "https://www.jreast.co.jp/estation/stations/877.html",
+      "researchNotes": "Metro Ginza route is high confidence. JR East and Toei confirm elevators but exact exit-level detail is medium confidence. Yurikamome Shimbashi not verified in this batch."
+    },
+    {
+      "id": "shiodome",
+      "name": "Shiodome",
+      "nameJa": "汐留駅",
+      "touristArea": "Shiodome City Center / Caretta Shiodome / Nittele Tower",
+      "city": "Tokyo",
+      "lat": 35.666128,
+      "lng": 139.759839,
+      "operators": [
+        "Toei Subway",
+        "Yurikamome"
+      ],
+      "lines": [
+        "Oedo Line",
+        "Yurikamome"
+      ],
+      "stepFree": "partial",
+      "entrances": [
+        {
+          "exit": "Toei Oedo Line elevator (street level)",
+          "hasLift": true,
+          "liftLocation": "Toei Oedo Line station; ground-level elevator connects street to concourse/ticket gate level; platform-level elevator connects concourse to platform.",
+          "levels": [
+            "Street",
+            "Concourse",
+            "Platform"
+          ],
+          "toPlatforms": [
+            "Oedo Line platform (island platform, both directions)"
+          ],
+          "notes": "Toei confirms 3 elevators and 1 step-free route. Specific exit numbers are not listed on the official Toei page.",
+          "sourceUrl": "https://www.kotsu.metro.tokyo.jp/subway/stations/shiodome.html",
+          "sourceTitle": "汐留 | 東京都交通局",
+          "confidence": "medium"
+        },
+        {
+          "exit": "Yurikamome elevator",
+          "hasLift": true,
+          "liftLocation": "Yurikamome elevated station; elevator connects platform level to ticket gate level, and ticket gate level connects to Toei Oedo Line and ground level.",
+          "levels": [
+            "Platform (elevated)",
+            "Concourse (ticket gate)",
+            "Ground/Street"
+          ],
+          "toPlatforms": [
+            "Yurikamome platform (both directions)"
+          ],
+          "notes": "Yurikamome official site confirms barrier-free facilities generally, but exact station-specific elevator location was verified via secondary source. Transfer between Toei Oedo and Yurikamome requires exiting to ground level.",
+          "sourceUrl": "https://www.yurikamome.co.jp/en/station-timetable/u-02.html",
+          "sourceTitle": "Shiodome | Yurikamome line",
+          "confidence": "medium"
+        }
+      ],
+      "lastVerified": "2026-06-17",
+      "officialUrl": "https://www.kotsu.metro.tokyo.jp/subway/stations/shiodome.html",
+      "researchNotes": "Toei and Yurikamome are both step-free individually, but transfer is not directly linked and exact exits are medium confidence."
+    },
+    {
+      "id": "higashi-ginza",
+      "name": "Higashi-ginza",
+      "nameJa": "東銀座駅",
+      "touristArea": "Ginza East / Kabuki-za / Tsukiji",
+      "city": "Tokyo",
+      "lat": 35.6697,
+      "lng": 139.7673,
+      "operators": [
+        "Tokyo Metro",
+        "Toei Subway"
+      ],
+      "lines": [
+        "Hibiya Line",
+        "Asakusa Line"
+      ],
+      "stepFree": "yes",
+      "entrances": [
+        {
+          "exit": "Exit 3 (Tokyo Metro Hibiya Line)",
+          "hasLift": true,
+          "liftLocation": "Exit 3, ground-level elevator available (Tokyo Metro exit guide marks this exit as having a ground-level elevator).",
+          "levels": [
+            "Street",
+            "Concourse",
+            "Platform"
+          ],
+          "toPlatforms": [
+            "Hibiya Line platform (central)"
+          ],
+          "notes": "Inside-gate elevator connects platform (central) to concourse; outside-gate elevator connects concourse to street via Exit 3.",
+          "sourceUrl": "https://www.tokyometro.jp/lang_en/station/higashi-ginza/accessibility/index.html",
+          "sourceTitle": "Barrier-Free Facilities | Higashi-ginza Station/H10 | Tokyo Metro",
+          "confidence": "high"
+        },
+        {
+          "exit": "Toei Asakusa Line elevator",
+          "hasLift": true,
+          "liftLocation": "Toei Asakusa Line station; ground-level elevator and platform-level elevator.",
+          "levels": [
+            "Street",
+            "Concourse",
+            "Platform"
+          ],
+          "toPlatforms": [
+            "Asakusa Line platform"
+          ],
+          "notes": "Toei confirms 2 elevators and 1 step-free route. Specific exit numbers are not provided on the official Toei page.",
+          "sourceUrl": "https://www.kotsu.metro.tokyo.jp/subway/stations/higashi-ginza.html",
+          "sourceTitle": "東銀座 | 東京都交通局",
+          "confidence": "medium"
+        }
+      ],
+      "lastVerified": "2026-06-17",
+      "officialUrl": "https://www.tokyometro.jp/lang_en/station/higashi-ginza/accessibility/index.html",
+      "researchNotes": "Tokyo Metro Hibiya route is high confidence. Toei Asakusa route is confirmed step-free but exact exit details are medium confidence."
+    },
+    {
+      "id": "tsukiji",
+      "name": "Tsukiji",
+      "nameJa": "築地駅",
+      "touristArea": "Tsukiji / Tsukiji Hongan-ji Temple / Former fish market area",
+      "city": "Tokyo",
+      "lat": 35.6681,
+      "lng": 139.7725,
+      "operators": [
+        "Tokyo Metro"
+      ],
+      "lines": [
+        "Hibiya Line"
+      ],
+      "stepFree": "yes",
+      "entrances": [
+        {
+          "exit": "Tsukiji-honganji Gate exit (elevator route)",
+          "hasLift": true,
+          "liftLocation": "Inside gate: elevator connects platform (central) to Tsukiji-honganji Gate. Outside gate: elevator connects gate level to street exit.",
+          "levels": [
+            "Platform",
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Hibiya Line platform (central)"
+          ],
+          "notes": "Tokyo Metro confirms one-route step-free elevator access for Hibiya Line.",
+          "sourceUrl": "https://www.tokyometro.jp/lang_en/station/tsukiji/accessibility/index.html",
+          "sourceTitle": "Barrier-Free Facilities | Tsukiji Station/H11 | Tokyo Metro",
+          "confidence": "high"
+        }
+      ],
+      "lastVerified": "2026-06-17",
+      "officialUrl": "https://www.tokyometro.jp/lang_en/station/tsukiji/accessibility/index.html",
+      "researchNotes": "Exact exit number is not explicit on the English page; the route is via Tsukiji-honganji Gate."
+    },
+    {
+      "id": "tsukiji-shijo",
+      "name": "Tsukiji-shijo",
+      "nameJa": "築地市場駅",
+      "touristArea": "Tsukiji outer market / former Tsukiji Market site",
+      "city": "Tokyo",
+      "lat": 35.6649,
+      "lng": 139.7671,
+      "operators": [
+        "Toei Subway"
+      ],
+      "lines": [
+        "Oedo Line"
+      ],
+      "stepFree": "partial",
+      "entrances": [
+        {
+          "exit": "Toei Oedo Line elevator (general)",
+          "hasLift": true,
+          "liftLocation": "Platform-level elevator connects platform to concourse; ground-level elevator connects concourse to street.",
+          "levels": [
+            "Platform",
+            "Concourse",
+            "Street"
+          ],
+          "toPlatforms": [
+            "Oedo Line platform (island platform, both directions)"
+          ],
+          "notes": "Toei confirms 2 elevators, 7 escalators, and 1 step-free route. Specific exit numbers are not provided on the official Toei page.",
+          "sourceUrl": "https://www.kotsu.metro.tokyo.jp/subway/stations/tsukijishijo.html",
+          "sourceTitle": "築地市場 | 東京都交通局",
+          "confidence": "medium"
+        }
+      ],
+      "lastVerified": "2026-06-17",
+      "officialUrl": "https://www.kotsu.metro.tokyo.jp/subway/stations/tsukijishijo.html",
+      "researchNotes": "Step-free route exists, but exact exit number and physical elevator locations are not provided on the official page."
     },
     {
       "id": "shinjuku",
@@ -37,12 +786,39 @@
       "city": "Tokyo",
       "lat": 35.690921,
       "lng": 139.700258,
-      "operators": ["JR East", "Tokyo Metro", "Toei"],
-      "lines": ["Yamanote", "Chuo", "Saikyo", "Marunouchi", "Oedo"],
+      "operators": [
+        "JR East",
+        "Tokyo Metro",
+        "Toei"
+      ],
+      "lines": [
+        "Yamanote",
+        "Chuo",
+        "Saikyo",
+        "Marunouchi",
+        "Oedo"
+      ],
       "stepFree": "yes",
       "entrances": [
-        { "exit": "New South Gate", "hasLift": true, "toPlatforms": ["Yamanote", "Chuo", "Saikyo"], "notes": "Easiest fully step-free route; lift from street level to concourse, then to platforms." },
-        { "exit": "East Exit", "hasLift": true, "toPlatforms": ["Yamanote", "Marunouchi"], "notes": "Lift to concourse; connects toward the Marunouchi Line." }
+        {
+          "exit": "New South Gate",
+          "hasLift": true,
+          "toPlatforms": [
+            "Yamanote",
+            "Chuo",
+            "Saikyo"
+          ],
+          "notes": "Easiest fully step-free route; lift from street level to concourse, then to platforms."
+        },
+        {
+          "exit": "East Exit",
+          "hasLift": true,
+          "toPlatforms": [
+            "Yamanote",
+            "Marunouchi"
+          ],
+          "notes": "Lift to concourse; connects toward the Marunouchi Line."
+        }
       ],
       "lastVerified": "2026-06-17",
       "officialUrl": "https://www.jreast.co.jp/e/stations/e1071.html"
@@ -54,12 +830,37 @@
       "city": "Tokyo",
       "lat": 35.658034,
       "lng": 139.701636,
-      "operators": ["JR East", "Tokyo Metro", "Tokyu"],
-      "lines": ["Yamanote", "Saikyo", "Ginza", "Hanzomon", "Fukutoshin"],
+      "operators": [
+        "JR East",
+        "Tokyo Metro",
+        "Tokyu"
+      ],
+      "lines": [
+        "Yamanote",
+        "Saikyo",
+        "Ginza",
+        "Hanzomon",
+        "Fukutoshin"
+      ],
       "stepFree": "yes",
       "entrances": [
-        { "exit": "East Exit", "hasLift": true, "toPlatforms": ["Yamanote", "Saikyo"], "notes": "Lift to the JR concourse; well-signed despite ongoing redevelopment." },
-        { "exit": "Ginza Line concourse", "hasLift": true, "toPlatforms": ["Ginza"], "notes": "Dedicated lifts to the 3rd-floor Ginza Line platform." }
+        {
+          "exit": "East Exit",
+          "hasLift": true,
+          "toPlatforms": [
+            "Yamanote",
+            "Saikyo"
+          ],
+          "notes": "Lift to the JR concourse; well-signed despite ongoing redevelopment."
+        },
+        {
+          "exit": "Ginza Line concourse",
+          "hasLift": true,
+          "toPlatforms": [
+            "Ginza"
+          ],
+          "notes": "Dedicated lifts to the 3rd-floor Ginza Line platform."
+        }
       ],
       "lastVerified": "2026-06-17",
       "officialUrl": "https://www.jreast.co.jp/e/stations/e1051.html"
@@ -71,12 +872,39 @@
       "city": "Tokyo",
       "lat": 35.62876,
       "lng": 139.73876,
-      "operators": ["JR East", "JR Central", "Keikyu"],
-      "lines": ["Yamanote", "Keihin-Tohoku", "Tokaido", "Tokaido Shinkansen", "Keikyu Main"],
+      "operators": [
+        "JR East",
+        "JR Central",
+        "Keikyu"
+      ],
+      "lines": [
+        "Yamanote",
+        "Keihin-Tohoku",
+        "Tokaido",
+        "Tokaido Shinkansen",
+        "Keikyu Main"
+      ],
       "stepFree": "yes",
       "entrances": [
-        { "exit": "Konan Exit (east)", "hasLift": true, "toPlatforms": ["Yamanote", "Keihin-Tohoku", "Tokaido"], "notes": "Lift from street to the wide central concourse, then to each platform." },
-        { "exit": "Takanawa Exit (west)", "hasLift": true, "toPlatforms": ["Yamanote", "Tokaido Shinkansen"], "notes": "Step-free to concourse; Shinkansen transfer gate has its own lifts." }
+        {
+          "exit": "Konan Exit (east)",
+          "hasLift": true,
+          "toPlatforms": [
+            "Yamanote",
+            "Keihin-Tohoku",
+            "Tokaido"
+          ],
+          "notes": "Lift from street to the wide central concourse, then to each platform."
+        },
+        {
+          "exit": "Takanawa Exit (west)",
+          "hasLift": true,
+          "toPlatforms": [
+            "Yamanote",
+            "Tokaido Shinkansen"
+          ],
+          "notes": "Step-free to concourse; Shinkansen transfer gate has its own lifts."
+        }
       ],
       "lastVerified": "2026-06-17",
       "officialUrl": "https://www.jreast.co.jp/e/stations/e1069.html"
@@ -88,12 +916,37 @@
       "city": "Tokyo",
       "lat": 35.713768,
       "lng": 139.777254,
-      "operators": ["JR East", "Tokyo Metro"],
-      "lines": ["Yamanote", "Keihin-Tohoku", "Tohoku / Hokuriku Shinkansen", "Ginza", "Hibiya"],
+      "operators": [
+        "JR East",
+        "Tokyo Metro"
+      ],
+      "lines": [
+        "Yamanote",
+        "Keihin-Tohoku",
+        "Tohoku / Hokuriku Shinkansen",
+        "Ginza",
+        "Hibiya"
+      ],
       "stepFree": "yes",
       "entrances": [
-        { "exit": "Park Exit", "hasLift": true, "toPlatforms": ["Yamanote", "Keihin-Tohoku"], "notes": "Lift to concourse with direct access toward Ueno Park." },
-        { "exit": "Shinobazu Exit", "hasLift": true, "toPlatforms": ["Yamanote", "Tohoku / Hokuriku Shinkansen"], "notes": "Lift to concourse and Shinkansen platforms." }
+        {
+          "exit": "Park Exit",
+          "hasLift": true,
+          "toPlatforms": [
+            "Yamanote",
+            "Keihin-Tohoku"
+          ],
+          "notes": "Lift to concourse with direct access toward Ueno Park."
+        },
+        {
+          "exit": "Shinobazu Exit",
+          "hasLift": true,
+          "toPlatforms": [
+            "Yamanote",
+            "Tohoku / Hokuriku Shinkansen"
+          ],
+          "notes": "Lift to concourse and Shinkansen platforms."
+        }
       ],
       "lastVerified": "2026-06-17",
       "officialUrl": "https://www.jreast.co.jp/e/stations/e1043.html"
@@ -105,12 +958,37 @@
       "city": "Tokyo",
       "lat": 35.728926,
       "lng": 139.71038,
-      "operators": ["JR East", "Tokyo Metro"],
-      "lines": ["Yamanote", "Saikyo", "Marunouchi", "Yurakucho", "Fukutoshin"],
+      "operators": [
+        "JR East",
+        "Tokyo Metro"
+      ],
+      "lines": [
+        "Yamanote",
+        "Saikyo",
+        "Marunouchi",
+        "Yurakucho",
+        "Fukutoshin"
+      ],
       "stepFree": "yes",
       "entrances": [
-        { "exit": "East Exit", "hasLift": true, "toPlatforms": ["Yamanote", "Saikyo"], "notes": "Lift to concourse; some routes connect to department-store lifts." },
-        { "exit": "West Exit", "hasLift": true, "toPlatforms": ["Yamanote", "Marunouchi"], "notes": "Step-free toward the Marunouchi Line." }
+        {
+          "exit": "East Exit",
+          "hasLift": true,
+          "toPlatforms": [
+            "Yamanote",
+            "Saikyo"
+          ],
+          "notes": "Lift to concourse; some routes connect to department-store lifts."
+        },
+        {
+          "exit": "West Exit",
+          "hasLift": true,
+          "toPlatforms": [
+            "Yamanote",
+            "Marunouchi"
+          ],
+          "notes": "Step-free toward the Marunouchi Line."
+        }
       ],
       "lastVerified": "2026-06-17",
       "officialUrl": "https://www.jreast.co.jp/e/stations/e1064.html"
@@ -122,31 +1000,39 @@
       "city": "Tokyo",
       "lat": 35.698683,
       "lng": 139.774219,
-      "operators": ["JR East", "Tokyo Metro"],
-      "lines": ["Yamanote", "Keihin-Tohoku", "Sobu", "Hibiya"],
+      "operators": [
+        "JR East",
+        "Tokyo Metro"
+      ],
+      "lines": [
+        "Yamanote",
+        "Keihin-Tohoku",
+        "Sobu",
+        "Hibiya"
+      ],
       "stepFree": "yes",
       "entrances": [
-        { "exit": "Electric Town Exit", "hasLift": true, "toPlatforms": ["Yamanote", "Keihin-Tohoku", "Sobu"], "notes": "Step-free route from street to concourse, then lifts to platforms." },
-        { "exit": "Showa-dori Exit", "hasLift": true, "toPlatforms": ["Hibiya"], "notes": "Lift toward the Hibiya Line." }
+        {
+          "exit": "Electric Town Exit",
+          "hasLift": true,
+          "toPlatforms": [
+            "Yamanote",
+            "Keihin-Tohoku",
+            "Sobu"
+          ],
+          "notes": "Step-free route from street to concourse, then lifts to platforms."
+        },
+        {
+          "exit": "Showa-dori Exit",
+          "hasLift": true,
+          "toPlatforms": [
+            "Hibiya"
+          ],
+          "notes": "Lift toward the Hibiya Line."
+        }
       ],
       "lastVerified": "2026-06-17",
       "officialUrl": "https://www.jreast.co.jp/e/stations/e1003.html"
-    },
-    {
-      "id": "ginza",
-      "name": "Ginza",
-      "nameJa": "銀座",
-      "city": "Tokyo",
-      "lat": 35.671989,
-      "lng": 139.76402,
-      "operators": ["Tokyo Metro"],
-      "lines": ["Ginza", "Marunouchi", "Hibiya"],
-      "stepFree": "yes",
-      "entrances": [
-        { "exit": "Exit C8", "hasLift": true, "toPlatforms": ["Ginza", "Marunouchi", "Hibiya"], "notes": "Lift from street to concourse; step-free interchange between all three lines." }
-      ],
-      "lastVerified": "2026-06-17",
-      "officialUrl": "https://www.tokyometro.jp/en/station/ginza/"
     },
     {
       "id": "shinjuku-3chome",
@@ -155,11 +1041,26 @@
       "city": "Tokyo",
       "lat": 35.690921,
       "lng": 139.705383,
-      "operators": ["Tokyo Metro", "Toei"],
-      "lines": ["Marunouchi", "Fukutoshin", "Shinjuku"],
+      "operators": [
+        "Tokyo Metro",
+        "Toei"
+      ],
+      "lines": [
+        "Marunouchi",
+        "Fukutoshin",
+        "Shinjuku"
+      ],
       "stepFree": "yes",
       "entrances": [
-        { "exit": "Exit E", "hasLift": true, "toPlatforms": ["Marunouchi", "Fukutoshin"], "notes": "Lift to street near the department stores; step-free to both platforms." }
+        {
+          "exit": "Exit E",
+          "hasLift": true,
+          "toPlatforms": [
+            "Marunouchi",
+            "Fukutoshin"
+          ],
+          "notes": "Lift to street near the department stores; step-free to both platforms."
+        }
       ],
       "lastVerified": "2026-06-17",
       "officialUrl": "https://www.tokyometro.jp/en/station/shinjuku-sanchome/"
@@ -171,11 +1072,26 @@
       "city": "Tokyo",
       "lat": 35.710733,
       "lng": 139.797755,
-      "operators": ["Tokyo Metro", "Toei", "Tobu"],
-      "lines": ["Ginza", "Asakusa", "Tobu Skytree"],
+      "operators": [
+        "Tokyo Metro",
+        "Toei",
+        "Tobu"
+      ],
+      "lines": [
+        "Ginza",
+        "Asakusa",
+        "Tobu Skytree"
+      ],
       "stepFree": "partial",
       "entrances": [
-        { "exit": "Exit A (near Kaminarimon)", "hasLift": true, "toPlatforms": ["Ginza"], "notes": "Lift to the Ginza Line. Transfers between operators may require going up to street level — not all routes are step-free." }
+        {
+          "exit": "Exit A (near Kaminarimon)",
+          "hasLift": true,
+          "toPlatforms": [
+            "Ginza"
+          ],
+          "notes": "Lift to the Ginza Line. Transfers between operators may require going up to street level — not all routes are step-free."
+        }
       ],
       "lastVerified": "2026-06-17",
       "officialUrl": "https://www.tokyometro.jp/en/station/asakusa/"
@@ -187,11 +1103,22 @@
       "city": "Tokyo",
       "lat": 35.710228,
       "lng": 139.80717,
-      "operators": ["Tobu"],
-      "lines": ["Tobu Skytree"],
+      "operators": [
+        "Tobu"
+      ],
+      "lines": [
+        "Tobu Skytree"
+      ],
       "stepFree": "yes",
       "entrances": [
-        { "exit": "Main Exit (Skytree Town)", "hasLift": true, "toPlatforms": ["Tobu Skytree"], "notes": "Direct lift access between the Skytree Town complex and the platform." }
+        {
+          "exit": "Main Exit (Skytree Town)",
+          "hasLift": true,
+          "toPlatforms": [
+            "Tobu Skytree"
+          ],
+          "notes": "Direct lift access between the Skytree Town complex and the platform."
+        }
       ],
       "lastVerified": "2026-06-17",
       "officialUrl": "https://www.tobu.co.jp/en/"
@@ -203,11 +1130,25 @@
       "city": "Tokyo",
       "lat": 35.544722,
       "lng": 139.769722,
-      "operators": ["Keikyu", "Tokyo Monorail"],
-      "lines": ["Keikyu Airport", "Tokyo Monorail"],
+      "operators": [
+        "Keikyu",
+        "Tokyo Monorail"
+      ],
+      "lines": [
+        "Keikyu Airport",
+        "Tokyo Monorail"
+      ],
       "stepFree": "yes",
       "entrances": [
-        { "exit": "Terminal 3 connection", "hasLift": true, "toPlatforms": ["Keikyu Airport", "Tokyo Monorail"], "notes": "Step-free connection from the terminal building; lifts to both platforms." }
+        {
+          "exit": "Terminal 3 connection",
+          "hasLift": true,
+          "toPlatforms": [
+            "Keikyu Airport",
+            "Tokyo Monorail"
+          ],
+          "notes": "Step-free connection from the terminal building; lifts to both platforms."
+        }
       ],
       "lastVerified": "2026-06-17",
       "officialUrl": "https://www.haneda-airport.jp/inter/en/"
